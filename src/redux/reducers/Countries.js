@@ -1,10 +1,16 @@
+import { toast } from 'react-toastify'
+
 import { constants } from '../actions/Countries'
 
 export const ACTION_HANDLERS = {
   [`${constants.SEARCH_COUNTRIES}_FULFILLED`]: function (state, action) {
     console.log(state, action)
+    console.log(action.payload)
+    const { payload: { entities, result }} = action
     return {
       ...state,
+      entities,
+      result,
       isLoading: false
     }
   },
@@ -14,7 +20,8 @@ export const ACTION_HANDLERS = {
       isLoading: true
     }
   },
-  [`${constants.SEARCH_COUNTRIES}_REJECTED`]: function (state) {
+  [`${constants.SEARCH_COUNTRIES}_REJECTED`]: function (state, action) {
+    toast.error('ERROR!')
     return {
       ...state,
       isLoading: false

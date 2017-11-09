@@ -1,0 +1,17 @@
+.search-list-item {
+  display: flex;
+  background: #fff;
+  padding: 15px;
+  margin: 0 0 15px;
+  border-bottom: 1px solid #eaeaea;
+
+  &:last-child {
+    border: none;
+  }
+
+  .list-item-index {
+    margin: auto 15px auto 0;
+    font-size: 31px;
+    color: #b9b9b9;
+  }
+}
